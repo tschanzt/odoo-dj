@@ -12,11 +12,33 @@
     <field name="song_type">load_csv</field>
   </record>
 
+  <record model="dj.song" id="dj_song_hr_recruitment_stages">
+    <field name="compilation_id" ref="dj_hr_base"/>
+    <field name="model_id" ref="hr_recruitment.model_hr_recruitment_stage" />
+    <field name="sequence" eval="10" />
+    <field name="song_type">load_csv</field>
+  </record>
+  <record model="dj.song" id="dj_song_hr_holidays_status">
+    <field name="compilation_id" ref="dj_hr_base"/>
+    <field name="model_id" ref="hr_holidays.model_hr_holidays_status" />
+    <field name="sequence" eval="10" />
+    <field name="song_type">load_csv</field>
+  </record>
   <record model="dj.song" id="dj_song_res_company">
     <field name="compilation_id" ref="dj_hr_base"/>
     <field name="model_id" ref="base.model_res_company" />
     <field name="sequence" eval="20" />
     <field name="song_type">load_csv</field>
     <field name="field_list">resource_calendar_id</field>
+  </record>
+  <record model="dj.equalizer" id="dj_equalizer_calendar_attendance">
+    <field name="model">resource.calendar.attendance</field>
+    <field name="xmlid_fields">calendar_id, dayofweek,name, hour_from, hour_to</field>
+  </record>
+  <record model="dj.song" id="dj_song_resource_calendar_attendance">
+    <field name="compilation_id" ref="dj_hr_base"/>
+    <field name="model_id" ref="resource.model_resource_calendar_attendance" />
+    <field name="sequence" eval="20" />
+    <field name="song_type">load_csv</field>
   </record>
 </odoo>

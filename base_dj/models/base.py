@@ -223,7 +223,8 @@ class Base(models.AbstractModel):
             except IntegrityError:
                 raise ValidationError(
                     "Writing xmlids for %s failed."
-                    " Probably your xmlids aren't unique" % self._name
+                    " Probably your xmlids aren't unique."
+                    " Ids in the query: %s" % (self._name, missing.ids)
                 )
             self.env['ir.model.data'].invalidate_cache(fnames=fields)
         return (

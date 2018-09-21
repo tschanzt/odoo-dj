@@ -21,7 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* Give better Errormessage when write for xmlid fails.
+* Provide better error message on xmlid update fail
 
 **Bugfixes**
 

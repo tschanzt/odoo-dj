@@ -3,7 +3,7 @@
 
 from psycopg2 import IntegrityError
 from odoo import api, models, tools
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 import io
 import os
 import codecs
@@ -221,9 +221,9 @@ class Base(models.AbstractModel):
                     columns=fields,
                 )
             except IntegrityError:
-                raise UserError(
+                raise ValidationError(
                     "Writing xmlids for %s failed."
-                    " Probably your xmlids aren't unique" % missing[0]._name
+                    " Probably your xmlids aren't unique" % self._name
                 )
             self.env['ir.model.data'].invalidate_cache(fnames=fields)
         return (
